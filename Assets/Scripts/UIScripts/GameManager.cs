@@ -7,10 +7,21 @@ namespace ComicUI
     public class GameManager : MonoBehaviour
     {
         public static GameManager Instance;
+        
+        [Header("Start Game")]
+        [SerializeField] private GameObject menu;   
+        [SerializeField] private GameObject level;  
 
         private int score = 0;
         private bool isGameOver = false;
 
+        public void StartGame()
+        {
+            ResetGame();
+            menu.SetActive(false);
+            level.SetActive(true);
+            Time.timeScale = 1f;
+        }
         private void Awake()
         {
             if (Instance == null)

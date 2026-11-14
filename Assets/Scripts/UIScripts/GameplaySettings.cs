@@ -8,7 +8,9 @@ namespace ComicUI
         public string[] IndicatorOptions;
         public TextMeshProUGUI SelectedIndicator;
         public int CurrentSelectedIndex;
+        public KeyCode pressKey = KeyCode.Space;
 
+    
         public void OnArrowClick(int value)
         {
             CurrentSelectedIndex += value;
@@ -23,12 +25,23 @@ namespace ComicUI
             }
 
             SelectedIndicator.text = IndicatorOptions[CurrentSelectedIndex];
+            Save();
         }
 
         public void SetIndicator(int index)
         {
             SelectedIndicator.text = IndicatorOptions[index];
             Debug.Log($"Received index {index} and set text {IndicatorOptions[index]}");
+        }
+        
+        private void Load()
+        {
+            CurrentSelectedIndex = PlayerPrefs.GetInt("Keybind");
+        }
+        
+        private void Save()
+        {
+            PlayerPrefs.SetInt("Keybind", CurrentSelectedIndex);
         }
     }
 }
