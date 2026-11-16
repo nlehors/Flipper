@@ -9,6 +9,9 @@ public class EventController : MonoBehaviour
     [SerializeField] UnityEvent onCollisionExitEvent;
     [SerializeField] UnityEvent onDestroy;
     [SerializeField] public int wallLife;
+    
+    public GameManager gameManager;
+    public int level;
  
     void OnTriggerEnter(Collider other)
     {

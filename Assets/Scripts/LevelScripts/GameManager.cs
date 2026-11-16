@@ -7,10 +7,16 @@ public class GameManager : MonoBehaviour
     public int lifeCount = 3;
     public TextMeshProUGUI lifeCountText;
     public TextMeshProUGUI gameWinText;
-    public Transform spawnPosition;
+    public Transform spawnPosition1;
+    public Transform spawnPosition2;
+    public Transform spawnPosition3;
+    public Transform spawnPosition4;
+
+    public int level = 1;
 
     void Start()
     {
+        level = 1;
         SpawnBall();
         RefreshLifeCountText();
     }
@@ -35,7 +41,12 @@ public class GameManager : MonoBehaviour
 
    public void SpawnBall()
     {
-        Instantiate(ballPrefab, spawnPosition.position, Quaternion.identity);
+        if (level == 1)
+        Instantiate(ballPrefab, spawnPosition1.position, Quaternion.identity);
+        else if (level == 2)
+        Instantiate(ballPrefab, spawnPosition2.position, Quaternion.identity);
+        else if (level == 3)
+        Instantiate(ballPrefab, spawnPosition3.position, Quaternion.identity);
     }
 
     void RefreshLifeCountText()
@@ -45,5 +56,10 @@ public class GameManager : MonoBehaviour
 
     public void GameWin()
     {
+    }
+
+    public void ChangeLevel()
+    {
+        level++;
     }
 }

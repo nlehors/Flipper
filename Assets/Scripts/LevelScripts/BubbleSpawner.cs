@@ -9,7 +9,7 @@ public class BubbleSpawner : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {        if (!other.CompareTag("Bubble") && !other.CompareTag("Bumper") && !other.CompareTag("Paddle"))
         {
-            Instantiate(bubble, ball.position, Quaternion.Euler(0, 0, 180));
+            Instantiate(bubble, ball.position, Quaternion.Euler(90, 0, 0));
         }
 
     }
